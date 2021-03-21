@@ -1,0 +1,27 @@
+server:
+  port: 8082
+#eureka8081 cloudgateway8082 auth8083 teacher8084 course8085 main8086 config8087
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: Eureka
+        uri: http://localhost:8081/
+        predicates:
+        - Path=/eureka/**
+
+      - id: Authentication
+        uri: http://localhost:8083/
+        predicates:
+        - Path=/authenticate/**
+
+      - id: Course
+        uri: http://localhost:8083/
+        predicates:
+        - Path=/course/**
+
+      - id: Main
+        uri: http://localhost:8086/
+        predicates:
+        - Path=/main/**
