@@ -14,14 +14,25 @@ spring:
       - id: Authentication
         uri: http://localhost:8083/
         predicates:
-        - Path=/authenticate/**
+        - Path=/auth/**
 
-      - id: Course
-        uri: http://localhost:8083/
+      - id: Course-Service
+        uri: http://localhost:8085/
         predicates:
-        - Path=/course/**
+        - Path=/mod/**
+        
+
+      - id: Store
+        uri: http://localhost:8088/
+        predicates:
+        - Path=/store/**
 
       - id: Main
         uri: http://localhost:8086/
         predicates:
         - Path=/main/**
+
+      - id: Teacher
+        uri: http://localhost:8084/
+        predicates:
+        - Path=/teacher/**
